@@ -1,0 +1,52 @@
+@import "tailwindcss";
+@import "./components/ui/input/input.css";
+/* Dark mode is triggered by a "dark" class on <html>, so dark: works too */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* Light theme tokens. Each one becomes a utility class, e.g. bg-surface, text-primary */
+@theme {
+  --color-background: #faf9f6;
+  --color-surface: #ffffff;
+  --color-surface-secondary: #f1efe9;
+  --color-text-primary: #171717;
+  --color-text-secondary: #6b6862;
+  --color-text-muted: #8c8880;
+  --color-border: #e7e3dc;
+  --color-primary: #7c3aed;
+  --color-primary-hover: #6d28d9;
+  --color-primary-soft: #ede9fe;
+  --color-success: #15803d;
+  --color-error: #b91c1c;
+  --color-warning: #b45309;
+  --color-info: #2563eb;
+  --color-input-bg: #ffffff;
+  --color-input-border: #d6d3d1;
+  --color-overlay: rgba(23, 23, 23, 0.45);
+}
+
+/* Dark theme: same variable names, new values. Every class automatically switches */
+.dark {
+  --color-background: #141416;
+  --color-surface: #1c1c20;
+  --color-surface-secondary: #25252b;
+  --color-text-primary: #f4f1f8;
+  --color-text-secondary: #a6a1af;
+  --color-text-muted: #827d8c;
+  --color-border: #34343a;
+  --color-primary: #a78bfa;
+  --color-primary-hover: #c4b5fd;
+  --color-primary-soft: #302449;
+  --color-success: #4ade80;
+  --color-error: rgb(244, 69, 69);
+  --color-warning: #fcd34d;
+  --color-info: #93c5fd;
+  --color-input-bg: #1c1c20;
+  --color-input-border: #45454d;
+  --color-overlay: rgba(0, 0, 0, 0.65);
+}
+
+@layer base {
+  body {
+    @apply bg-background text-text-primary;
+  }
+}

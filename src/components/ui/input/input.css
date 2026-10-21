@@ -1,0 +1,211 @@
+@layer components {
+  .ty-input-field {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+    min-width: 0;
+  }
+
+  .ty-input-label {
+    color: var(--color-text-primary);
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.5;
+  }
+
+  .ty-input-required {
+    color: var(--color-error);
+  }
+
+  .ty-input-control {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    min-width: 0;
+    min-height: 50px;
+    padding: 0 14px;
+
+    background: var(--color-input-bg);
+    border: 1px solid var(--color-input-border);
+    border-radius: 10px;
+
+    color: var(--color-text-primary);
+
+    transition:
+      border-color 180ms ease,
+      box-shadow 180ms ease,
+      background-color 180ms ease;
+  }
+
+  .ty-input-control:focus-within {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px var(--color-primary-soft);
+  }
+
+  .ty-input-element {
+    flex: 1;
+    width: 100%;
+    min-width: 0;
+    min-height: 48px;
+    padding: 0;
+
+    border: 0;
+    outline: none;
+    background: transparent;
+
+    color: var(--color-text-primary);
+    font-family: inherit;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  /* Browser autofill styling */
+  .ty-input-element:-webkit-autofill,
+  .ty-input-element:-webkit-autofill:hover,
+  .ty-input-element:-webkit-autofill:focus {
+    -webkit-text-fill-color: var(--color-text-primary);
+    -webkit-box-shadow: 0 0 0 1000px var(--color-input-bg) inset;
+    transition: background-color 5000s ease-in-out 0s;
+  }
+
+  .ty-input-element::placeholder {
+    color: var(--color-text-muted);
+    opacity: 1;
+  }
+
+  .ty-input-element:disabled {
+    cursor: not-allowed;
+  }
+
+  .ty-input-control:has(.ty-input-element:disabled) {
+    background: var(--color-surface-secondary);
+    cursor: not-allowed;
+    opacity: 0.65;
+  }
+
+  .ty-input-icon {
+    display: inline-flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-text-secondary);
+  }
+
+  .ty-input-icon-left {
+    pointer-events: none;
+  }
+
+  .ty-input-icon-button {
+    display: inline-flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    margin-right: -8px;
+
+    border: 0;
+    border-radius: 8px;
+    background: transparent;
+    color: var(--color-text-secondary);
+    cursor: pointer;
+
+    transition:
+      background-color 180ms ease,
+      color 180ms ease;
+  }
+
+  .ty-input-icon-button:hover:not(:disabled) {
+    background: var(--color-surface-secondary);
+    color: var(--color-text-primary);
+  }
+
+  .ty-input-icon-button:focus-visible,
+  .ty-input-suffix-action:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+  }
+
+  .ty-input-icon-button:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+
+  .ty-input-prefix,
+  .ty-input-suffix {
+    display: inline-flex;
+    flex-shrink: 0;
+    align-items: center;
+    color: var(--color-text-secondary);
+    font-size: 14px;
+  }
+
+  .ty-input-suffix-action {
+    flex-shrink: 0;
+    padding: 8px 12px;
+
+    border: 0;
+    border-radius: 7px;
+    background: var(--color-primary-soft);
+    color: var(--color-primary);
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 180ms ease;
+  }
+
+  .ty-input-suffix-action:hover:not(:disabled) {
+    background: var(--color-surface-secondary);
+  }
+
+  .ty-input-suffix-action:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+
+  .ty-input-message {
+    margin: 0;
+    color: var(--color-text-secondary);
+    font-size: 12px;
+    line-height: 1.5;
+  }
+
+  .ty-input-message-error {
+    color: var(--color-error);
+  }
+
+  .ty-input-message-success {
+    color: var(--color-success);
+  }
+
+  .ty-input-control-error,
+  .ty-input-control-error:focus-within {
+    border-color: var(--color-error);
+    box-shadow: none;
+  }
+
+  .ty-input-control-error > .ty-input-icon,
+  .ty-input-control-error > svg {
+    color: var(--color-error);
+  }
+
+  .ty-input-control-success,
+  .ty-input-control-success:focus-within {
+    border-color: var(--color-success);
+  }
+
+  .ty-input-control-success > .ty-input-icon,
+  .ty-input-control-success > svg {
+    color: var(--color-success);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .ty-input-control,
+    .ty-input-icon-button,
+    .ty-input-suffix-action {
+      transition: none;
+    }
+  }
+}
