@@ -377,9 +377,9 @@ function App() {
             <Route
               path="/post/:postId/"
               element={
-                <Protected authentication={true}>
+              
                   <PostDetails />
-                </Protected>
+                
               }
             />
             <Route path="/about" element={<About />} />
